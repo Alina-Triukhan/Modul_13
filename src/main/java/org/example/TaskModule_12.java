@@ -15,14 +15,14 @@ public class TaskModule_12 {
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public static void main(String[] args) throws IOException {
-//        createUser();
-//        updatingUserById(5);
-//        removeUserByID(3);
-//        infoAboutUsers();
-//        findUserById(1);
-//        findUserByUsername("Antonette");
-//        lastUser_sCommentsToLastPost(7);
-//        lastUser_sCommentsToLastPost(11);
+        createUser();
+        updatingUserById(5);
+        removeUserByID(3);
+        infoAboutUsers();
+        findUserById(1);
+        findUserByUsername("Antonette");
+        lastUser_sCommentsToLastPost(7);
+        lastUser_sCommentsToLastPost(11);
         haveToDo(2);
     }
 
@@ -88,7 +88,7 @@ public class TaskModule_12 {
     private static void findUserByUsername(String username) throws IOException {
         String url = "https://jsonplaceholder.typicode.com/users?username=" + username;
         Document doc_users = Jsoup.connect(url).ignoreContentType(true).get();
-        User[] users = gson.fromJson(doc_users.text(), User[].class); //на той випадок, якщо осіб з таким ім'ям користувача декілька
+        User[] users = gson.fromJson(doc_users.text(), User[].class);       //на той випадок, якщо осіб з таким ім'ям користувача декілька
         System.out.println("Користувач " + username + ":\n" + gson.toJson(users));
     }
 
@@ -120,7 +120,7 @@ public class TaskModule_12 {
         }
     }
 
-    private static void  haveToDo(int id) throws IOException {
+    private static void haveToDo(int id) throws IOException {
         String url = "https://jsonplaceholder.typicode.com/users/" + id + "/todos";
         Document doc_todos = Jsoup.connect(url).ignoreContentType(true).get();
         Todo[] userTodos = gson.fromJson(doc_todos.text(), Todo[].class);
